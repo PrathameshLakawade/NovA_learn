@@ -27,8 +27,6 @@ function Login() {
         const data = await response.json();
         setMessage(data.message);
         setError('');
-
-        // Redirect to the dashboard on successful login
         navigate('/dashboard');
       } else {
         const errorData = await response.json();
@@ -53,7 +51,7 @@ function Login() {
           <Col className='p-5'>
             <p className='text-end'>
               Not a member? 
-              <a href='/' className='text-decoration-none'> Register Now</a>
+              <a href='/register' className='text-decoration-none'> Register Now</a>
             </p>
             <p className='text-center pt-5 h1'>
               <b>Hello Again!</b>
@@ -83,14 +81,12 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </InputGroup>
-              <p className='text-end'>Recover Password?</p>
               <Button variant="outline-dark" type="submit">
                 Submit
               </Button>
             </Form>
             {message && <p className="text-success text-center pt-3">{message}</p>}
             {error && <p className="text-danger text-center pt-3">{error}</p>}
-            <p className='text-center py-3'>or continue with</p>
           </Col>
         </Row>
       </Card>
