@@ -19,7 +19,7 @@ class LoginRequest(BaseModel):
 
 @app.post("/login")
 async def login(request: LoginRequest):
-    if request.email == "testuser" and request.password == "password123":
+    if request.email == "testuser@gmail.com" and request.password == "password123":
         return {"message": "Login successful"}
     else:
         raise HTTPException(status_code=401, detail="Invalid credentials")
